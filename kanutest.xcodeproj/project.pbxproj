@@ -27,6 +27,8 @@
 		8B180AD42BAF48C1000DC9C9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B180AD32BAF48C1000DC9C9 /* GoogleSignInSwift */; };
 		8B180AD72BAF4DC0000DC9C9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B180AD62BAF4DC0000DC9C9 /* LoginView.swift */; };
 		8BDAED522BAF7195007BA09D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BDAED512BAF7195007BA09D /* SDWebImageSwiftUI */; };
+		8BDAED542BAF75F8007BA09D /* MatchingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDAED532BAF75F8007BA09D /* MatchingStackView.swift */; };
+		8BDAED562BAF7CF2007BA09D /* MessageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDAED552BAF7CF2007BA09D /* MessageStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		8B02F1BB2BAF2DED00C90224 /* NearbyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyManager.swift; sourceTree = "<group>"; };
 		8B180AD52BAF4BF5000DC9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8B180AD62BAF4DC0000DC9C9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8BDAED532BAF75F8007BA09D /* MatchingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStackView.swift; sourceTree = "<group>"; };
+		8BDAED552BAF7CF2007BA09D /* MessageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +126,10 @@
 				8B02F1AF2BAF2D8400C90224 /* MyProfileView.swift */,
 				8B02F1AD2BAF2D7200C90224 /* MessageListView.swift */,
 				8B02F1B32BAF2DA100C90224 /* ProfileSheet.swift */,
+				8BDAED532BAF75F8007BA09D /* MatchingStackView.swift */,
 				8B02F1B12BAF2D9300C90224 /* NearbyView.swift */,
 				8B02F1B72BAF2DC500C90224 /* NearbyNotAvailable.swift */,
+				8BDAED552BAF7CF2007BA09D /* MessageStackView.swift */,
 				8B02F1B52BAF2DAD00C90224 /* WebView.swift */,
 			);
 			path = views;
@@ -212,10 +218,12 @@
 			files = (
 				8B02F1982BAF2BF100C90224 /* ContentView.swift in Sources */,
 				8B02F1B62BAF2DAD00C90224 /* WebView.swift in Sources */,
+				8BDAED542BAF75F8007BA09D /* MatchingStackView.swift in Sources */,
 				8B02F1962BAF2BF100C90224 /* kanutestApp.swift in Sources */,
 				8B02F1BC2BAF2DED00C90224 /* NearbyManager.swift in Sources */,
 				8B02F1A82BAF2D3B00C90224 /* ProfileHeader.swift in Sources */,
 				8B02F1AA2BAF2D5300C90224 /* WebViewModel.swift in Sources */,
+				8BDAED562BAF7CF2007BA09D /* MessageStackView.swift in Sources */,
 				8B02F1BA2BAF2DDE00C90224 /* NearbyViewModel.swift in Sources */,
 				8B02F1B02BAF2D8400C90224 /* MyProfileView.swift in Sources */,
 				8B180AD72BAF4DC0000DC9C9 /* LoginView.swift in Sources */,

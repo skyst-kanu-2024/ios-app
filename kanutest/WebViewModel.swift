@@ -11,4 +11,7 @@ import Combine
 class WebViewModel: ObservableObject {    
     var profileSheet = PassthroughSubject<Bool, Never>()
     var profileSheetData = PassthroughSubject<String, Never>()
+    
+    var matchingStackView = PassthroughSubject<Bool, Never>()
+    var matchingStackViewData = PassthroughSubject<String, Never>()
 }

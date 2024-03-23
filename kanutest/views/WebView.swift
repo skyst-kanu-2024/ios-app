@@ -71,6 +71,12 @@ extension WebView.Coordinator: WKScriptMessageHandler {
                 if command == "profile" {
                     self.parent.viewModel.profileSheetData.send(data)
                     self.parent.viewModel.profileSheet.send(true)
+                } else if command == "matching" {
+                    self.parent.viewModel.matchingStackViewData.send(data)
+                    self.parent.viewModel.matchingStackView.send(true)
+                    NotificationCenter.default.post(name: NSNotification.Name("matchingStackView"), object: data, userInfo: nil)
+                } else if command == "message" {
+                    NotificationCenter.default.post(name: NSNotification.Name("messageStackView"), object: data, userInfo: nil)
                 }
             }
         }

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MessageListView: View {
+    @ObservedObject var viewModel = WebViewModel()
+    @AppStorage("sessionid") private var sessionID: String = ""
+    
     var body: some View {
-        Text("MessageListView")
+        WebView(url: "http://192.168.10.124:5173/message-list?sessionID=\(sessionID)", viewModel: self.viewModel)
     }
 }
 

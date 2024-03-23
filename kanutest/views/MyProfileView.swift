@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MyProfileView: View {
+    @ObservedObject var viewModel = WebViewModel()
+    @AppStorage("sessionid") private var sessionID: String = ""
+    
     var body: some View {
-        Text("MyProfileView")
+        WebView(url: "http://192.168.10.124:5173/mypage?sessionID=\(sessionID)", viewModel: self.viewModel)
     }
 }
 
