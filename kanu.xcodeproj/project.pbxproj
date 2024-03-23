@@ -16,10 +16,12 @@
 		8BA6E48B2BAEA90B0021991D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E48A2BAEA90B0021991D /* WebView.swift */; };
 		8BA6E48E2BAEAA5A0021991D /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E48D2BAEAA5A0021991D /* ProfileHeader.swift */; };
 		8BA6E4902BAEAFC60021991D /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E48F2BAEAFC60021991D /* NearbyView.swift */; };
-		8BA6E4922BAEC3870021991D /* ProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E4912BAEC3870021991D /* ProfileSheet.swift */; };
 		8BA6E4942BAEC4B70021991D /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E4932BAEC4B70021991D /* WebViewModel.swift */; };
 		8BA6E4962BAED0A20021991D /* NearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E4952BAED0A20021991D /* NearbyViewModel.swift */; };
 		8BA6E4982BAED97F0021991D /* NearbyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E4972BAED97F0021991D /* NearbyManager.swift */; };
+		8BA6E49B2BAEE8740021991D /* ProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E49A2BAEE8740021991D /* ProfileSheet.swift */; };
+		8BA6E49D2BAEE8B00021991D /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E49C2BAEE8B00021991D /* MessageListView.swift */; };
+		8BA6E49F2BAEE8D10021991D /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E49E2BAEE8D10021991D /* MyProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +35,12 @@
 		8BA6E48A2BAEA90B0021991D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8BA6E48D2BAEAA5A0021991D /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		8BA6E48F2BAEAFC60021991D /* NearbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyView.swift; sourceTree = "<group>"; };
-		8BA6E4912BAEC3870021991D /* ProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileSheet.swift; path = ../../../ProfileSheet.swift; sourceTree = "<group>"; };
 		8BA6E4932BAEC4B70021991D /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		8BA6E4952BAED0A20021991D /* NearbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewModel.swift; sourceTree = "<group>"; };
 		8BA6E4972BAED97F0021991D /* NearbyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyManager.swift; sourceTree = "<group>"; };
+		8BA6E49A2BAEE8740021991D /* ProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSheet.swift; sourceTree = "<group>"; };
+		8BA6E49C2BAEE8B00021991D /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
+		8BA6E49E2BAEE8D10021991D /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,14 +76,10 @@
 				8BA6E4782BAEA37D0021991D /* kanuApp.swift */,
 				8BA6E48C2BAEAA470021991D /* components */,
 				8BA6E47A2BAEA37D0021991D /* ContentView.swift */,
-				8BA6E48F2BAEAFC60021991D /* NearbyView.swift */,
 				8BA6E4932BAEC4B70021991D /* WebViewModel.swift */,
+				8BA6E4992BAEE8550021991D /* Views */,
 				8BA6E4952BAED0A20021991D /* NearbyViewModel.swift */,
 				8BA6E4972BAED97F0021991D /* NearbyManager.swift */,
-				8BA6E4882BAEA89A0021991D /* RootView.swift */,
-				8BA6E48A2BAEA90B0021991D /* WebView.swift */,
-				8BA6E4912BAEC3870021991D /* ProfileSheet.swift */,
-				8BA6E4862BAEA5190021991D /* NearbyNotAvailable.swift */,
 				8BA6E47C2BAEA37F0021991D /* Assets.xcassets */,
 				8BA6E47E2BAEA37F0021991D /* Preview Content */,
 			);
@@ -100,6 +100,20 @@
 				8BA6E48D2BAEAA5A0021991D /* ProfileHeader.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		8BA6E4992BAEE8550021991D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BA6E4882BAEA89A0021991D /* RootView.swift */,
+				8BA6E49C2BAEE8B00021991D /* MessageListView.swift */,
+				8BA6E49E2BAEE8D10021991D /* MyProfileView.swift */,
+				8BA6E48F2BAEAFC60021991D /* NearbyView.swift */,
+				8BA6E49A2BAEE8740021991D /* ProfileSheet.swift */,
+				8BA6E48A2BAEA90B0021991D /* WebView.swift */,
+				8BA6E4862BAEA5190021991D /* NearbyNotAvailable.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,14 +189,16 @@
 				8BA6E47B2BAEA37D0021991D /* ContentView.swift in Sources */,
 				8BA6E4942BAEC4B70021991D /* WebViewModel.swift in Sources */,
 				8BA6E48B2BAEA90B0021991D /* WebView.swift in Sources */,
+				8BA6E49F2BAEE8D10021991D /* MyProfileView.swift in Sources */,
 				8BA6E4962BAED0A20021991D /* NearbyViewModel.swift in Sources */,
+				8BA6E49D2BAEE8B00021991D /* MessageListView.swift in Sources */,
 				8BA6E48E2BAEAA5A0021991D /* ProfileHeader.swift in Sources */,
 				8BA6E4792BAEA37D0021991D /* kanuApp.swift in Sources */,
 				8BA6E4872BAEA5190021991D /* NearbyNotAvailable.swift in Sources */,
+				8BA6E49B2BAEE8740021991D /* ProfileSheet.swift in Sources */,
 				8BA6E4902BAEAFC60021991D /* NearbyView.swift in Sources */,
 				8BA6E4982BAED97F0021991D /* NearbyManager.swift in Sources */,
 				8BA6E4892BAEA89A0021991D /* RootView.swift in Sources */,
-				8BA6E4922BAEC3870021991D /* ProfileSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

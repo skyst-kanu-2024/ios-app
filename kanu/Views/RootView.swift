@@ -13,7 +13,7 @@ struct RootView: View {
     
     
     var body: some View {
-        WebView(url: "http://192.168.0.132:4321/debug", viewModel: self.viewModel)
+        WebView(url: "http://192.168.0.132:5173/debug", viewModel: self.viewModel)
             .sheet(isPresented: self.$showProfileSheet, content: {
                 ProfileSheet()
             })

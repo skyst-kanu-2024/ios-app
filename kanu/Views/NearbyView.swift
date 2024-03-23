@@ -13,10 +13,9 @@ import MultipeerConnectivity
 struct NearbyView: View {
     @ObservedObject var viewModel = NearbyViewModel()
     
-    @State private var proximity: Float = 0.0
-    
-    @State private var session: NISession?
-    
+//    init(viewModel: NearbyViewModel) {
+//        self.viewModel = viewModel
+//    }
     
     var body: some View {
         ZStack {
@@ -28,7 +27,7 @@ struct NearbyView: View {
                         Text("대충엄청난닉네임")
                             .foregroundStyle(.gray)
                             .font(.caption)
-                        Text("\(String(format: "%.2f", self.proximity)) m")
+                        Text("\(String(format: "%.2f", 0.0)) m")
                             .foregroundStyle(.white)
                             .fontWeight(.bold)
                             .font(.largeTitle)
@@ -45,15 +44,8 @@ struct NearbyView: View {
     }
     
     func startup() {
-        self.session = NISession()
-        
+        viewModel.startNearbySession()
     }
-}
-
-class NISessionController: NSObject, NISessionDelegate {
-    @ObservedObject var viewModel: WebViewModel
-    
-    
 }
 
 #Preview {
