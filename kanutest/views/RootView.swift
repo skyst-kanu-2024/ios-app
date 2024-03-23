@@ -20,7 +20,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack {
-            WebView(url: "http://192.168.10.124:5173?sessionID=\(sessionID)", viewModel: self.viewModel)
+            WebView(url: "https://kanu-webview.netlify.app?sessionID=\(sessionID)", viewModel: self.viewModel)
                 .sheet(isPresented: self.$showProfileSheet, content: {
                     ProfileSheet(userID: self.$profileSheetData)
                 })

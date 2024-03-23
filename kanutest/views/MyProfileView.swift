@@ -12,7 +12,7 @@ struct MyProfileView: View {
     @AppStorage("sessionid") private var sessionID: String = ""
     
     var body: some View {
-        WebView(url: "http://192.168.10.124:5173/mypage?sessionID=\(sessionID)", viewModel: self.viewModel)
+        WebView(url: "https://kanu-webview.netlify.app/mypage?sessionID=\(sessionID)", viewModel: self.viewModel)
     }
 }
 

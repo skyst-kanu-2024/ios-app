@@ -12,7 +12,7 @@ struct MessageListView: View {
     @AppStorage("sessionid") private var sessionID: String = ""
     
     var body: some View {
-        WebView(url: "http://192.168.10.124:5173/message-list?sessionID=\(sessionID)", viewModel: self.viewModel)
+        WebView(url: "https://kanu-webview.netlify.app/message-list?sessionID=\(sessionID)", viewModel: self.viewModel)
     }
 }
 

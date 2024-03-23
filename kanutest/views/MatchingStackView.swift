@@ -18,7 +18,7 @@ struct MatchingStackView: View {
     
     var body: some View {
         NavigationStack {
-            WebView(url: "http://192.168.10.124:5173/matching/\(self.userID)?sessionID=\(sessionID)", viewModel: self.viewModel)
+            WebView(url: "https://kanu-webview.netlify.app/matching/\(self.userID)?sessionID=\(sessionID)", viewModel: self.viewModel)
                 .navigationDestination(isPresented: self.$showMessageStackView, destination: {
                     MessageStackView(roomID: self.$messageStackViewData)
                 })

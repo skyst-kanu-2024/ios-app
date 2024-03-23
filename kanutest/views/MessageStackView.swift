@@ -16,7 +16,7 @@ struct MessageStackView: View {
     
     var body: some View {
         NavigationStack {
-            WebView(url: "http://192.168.10.124:5173/message/\(self.roomID)?sessionID=\(sessionID)", viewModel: self.viewModel)
+            WebView(url: "https://kanu-webview.netlify.app/message/\(self.roomID)?sessionID=\(sessionID)", viewModel: self.viewModel)
                 .toolbar {
                     Button(action: {
                         self.showNaerbyView = true

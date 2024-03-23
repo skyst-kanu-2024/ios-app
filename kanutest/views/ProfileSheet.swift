@@ -15,7 +15,7 @@ struct ProfileSheet: View {
     @Binding var userID: String
     
     var body: some View {
-        WebView(url: "http://192.168.10.124:5173/profile/\(self.userID)?sessionID=\(sessionID)", viewModel: self.viewModel)
+        WebView(url: "https://kanu-webview.netlify.app/profile/\(self.userID)?sessionID=\(sessionID)", viewModel: self.viewModel)
             .onReceive(self.viewModel.matchingStackView.receive(on: RunLoop.main)) { value in
                 if value {
                     dismiss()
