@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class WebViewModel: ObservableObject {
-    var foo = PassthroughSubject<Bool, Never>()
-    var bar = PassthroughSubject<Bool, Never>()
+class WebViewModel: ObservableObject {    
+    var profileSheet = PassthroughSubject<Bool, Never>()
+    var profileSheetData = PassthroughSubject<String, Never>()
 }

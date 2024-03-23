@@ -10,12 +10,13 @@ import SwiftUI
 struct ProfileSheet: View {
     @ObservedObject var viewModel = WebViewModel()
     @State var showProfileSheet: Bool = false
+    @Binding var userID: String
     
     var body: some View {
-        WebView(url: "http://192.168.0.132:5173/profile/123", viewModel: self.viewModel)
+        WebView(url: "http://192.168.10.124:5173/profile/\(self.userID)?sessionID=testsessionid", viewModel: self.viewModel)
     }
 }
 
 #Preview {
-    ProfileSheet()
+    ProfileSheet(userID: .constant("123"))
 }

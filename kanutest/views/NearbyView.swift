@@ -13,6 +13,7 @@ import Alamofire
 
 struct NearbyView: View {
     @ObservedObject var viewModel = NearbyViewModel()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
@@ -37,6 +38,11 @@ struct NearbyView: View {
         }.onAppear() {
             startup()
         }
+        .onReceive(timer) { _ in
+            if viewModel.isNearbySessionEstablished {
+                getPeerToken()
+            }
+        }
     }
     
     func startup() {
@@ -52,7 +58,7 @@ struct NearbyView: View {
 
                 let parameter: [String: String] = [
                     "roomid": "7",
-                    "userid": "2",
+                    "userid": "1",
                     "token": encodedToken.base64EncodedString()
                 ]
                 let tokenUpload = AF.request("https://wget.kr/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
@@ -65,7 +71,7 @@ struct NearbyView: View {
     }
     
     func getPeerToken() {
-        AF.request("https://wget.kr/dtoken?roomid=7&userid=2", method: .get).responseData() { response in
+        AF.request("https://wget.kr/dtoken?roomid=7&userid=1", method: .get).responseData() { response in
             switch response.result {
             case .success(let data):
                 do {

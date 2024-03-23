@@ -23,6 +23,9 @@
 		8B02F1B82BAF2DC500C90224 /* NearbyNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02F1B72BAF2DC500C90224 /* NearbyNotAvailable.swift */; };
 		8B02F1BA2BAF2DDE00C90224 /* NearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02F1B92BAF2DDE00C90224 /* NearbyViewModel.swift */; };
 		8B02F1BC2BAF2DED00C90224 /* NearbyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02F1BB2BAF2DED00C90224 /* NearbyManager.swift */; };
+		8B180AD22BAF48C1000DC9C9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8B180AD12BAF48C1000DC9C9 /* GoogleSignIn */; };
+		8B180AD42BAF48C1000DC9C9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B180AD32BAF48C1000DC9C9 /* GoogleSignInSwift */; };
+		8B180AD72BAF4DC0000DC9C9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B180AD62BAF4DC0000DC9C9 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,8 @@
 		8B02F1B72BAF2DC500C90224 /* NearbyNotAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyNotAvailable.swift; sourceTree = "<group>"; };
 		8B02F1B92BAF2DDE00C90224 /* NearbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewModel.swift; sourceTree = "<group>"; };
 		8B02F1BB2BAF2DED00C90224 /* NearbyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyManager.swift; sourceTree = "<group>"; };
+		8B180AD52BAF4BF5000DC9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B180AD62BAF4DC0000DC9C9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B180AD42BAF48C1000DC9C9 /* GoogleSignInSwift in Frameworks */,
 				8B02F1A52BAF2C0B00C90224 /* Alamofire in Frameworks */,
+				8B180AD22BAF48C1000DC9C9 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +82,14 @@
 		8B02F1942BAF2BF100C90224 /* kanutest */ = {
 			isa = PBXGroup;
 			children = (
+				8B180AD52BAF4BF5000DC9C9 /* Info.plist */,
 				8B02F1952BAF2BF100C90224 /* kanutestApp.swift */,
 				8B02F1972BAF2BF100C90224 /* ContentView.swift */,
 				8B02F1A62BAF2D2B00C90224 /* components */,
 				8B02F1BD2BAF2DFD00C90224 /* views */,
 				8B02F1B92BAF2DDE00C90224 /* NearbyViewModel.swift */,
 				8B02F1A92BAF2D5300C90224 /* WebViewModel.swift */,
+				8B180AD62BAF4DC0000DC9C9 /* LoginView.swift */,
 				8B02F1BB2BAF2DED00C90224 /* NearbyManager.swift */,
 				8B02F1992BAF2BF200C90224 /* Assets.xcassets */,
 				8B02F19B2BAF2BF200C90224 /* Preview Content */,
@@ -136,6 +145,8 @@
 			name = kanutest;
 			packageProductDependencies = (
 				8B02F1A42BAF2C0B00C90224 /* Alamofire */,
+				8B180AD12BAF48C1000DC9C9 /* GoogleSignIn */,
+				8B180AD32BAF48C1000DC9C9 /* GoogleSignInSwift */,
 			);
 			productName = kanutest;
 			productReference = 8B02F1922BAF2BF100C90224 /* kanutest.app */;
@@ -167,6 +178,7 @@
 			mainGroup = 8B02F1892BAF2BF100C90224;
 			packageReferences = (
 				8B02F1A32BAF2C0B00C90224 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8B180AD02BAF48C1000DC9C9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 8B02F1932BAF2BF100C90224 /* Products */;
 			projectDirPath = "";
@@ -202,6 +214,7 @@
 				8B02F1AA2BAF2D5300C90224 /* WebViewModel.swift in Sources */,
 				8B02F1BA2BAF2DDE00C90224 /* NearbyViewModel.swift in Sources */,
 				8B02F1B02BAF2D8400C90224 /* MyProfileView.swift in Sources */,
+				8B180AD72BAF4DC0000DC9C9 /* LoginView.swift in Sources */,
 				8B02F1B82BAF2DC500C90224 /* NearbyNotAvailable.swift in Sources */,
 				8B02F1AE2BAF2D7200C90224 /* MessageListView.swift in Sources */,
 				8B02F1AC2BAF2D6000C90224 /* RootView.swift in Sources */,
@@ -343,6 +356,7 @@
 				DEVELOPMENT_TEAM = GK39GPB6KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kanutest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -372,6 +386,7 @@
 				DEVELOPMENT_TEAM = GK39GPB6KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kanutest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -422,6 +437,14 @@
 				minimumVersion = 5.9.0;
 			};
 		};
+		8B180AD02BAF48C1000DC9C9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -429,6 +452,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B02F1A32BAF2C0B00C90224 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		8B180AD12BAF48C1000DC9C9 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B180AD02BAF48C1000DC9C9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		8B180AD32BAF48C1000DC9C9 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B180AD02BAF48C1000DC9C9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

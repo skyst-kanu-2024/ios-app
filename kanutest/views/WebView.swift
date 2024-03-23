@@ -5,6 +5,7 @@
 //  Created by Soongyu Kwon on 3/23/24.
 //
 
+import Foundation
 import SwiftUI
 import Combine
 import WebKit
@@ -18,7 +19,7 @@ struct WebView: UIViewRepresentable {
         preferences.javaScriptCanOpenWindowsAutomatically = false
         
         let configuration = WKWebViewConfiguration()
-        configuration.userContentController.add(self.makeCoordinator(), name: "messageHandler")
+        configuration.userContentController.add(self.makeCoordinator(), name: "navigate")
         configuration.preferences = preferences
         
         let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
@@ -43,6 +44,7 @@ struct WebView: UIViewRepresentable {
 
     class Coordinator : NSObject, WKNavigationDelegate {
         var parent: WebView
+        var sessionID: AnyCancellable? = nil
         var foo: AnyCancellable? = nil
         
         init(_ uiWebView: WebView) {
@@ -50,6 +52,7 @@ struct WebView: UIViewRepresentable {
         }
 
         deinit {
+            sessionID?.cancel()
             foo?.cancel()
         }
     }
@@ -57,13 +60,19 @@ struct WebView: UIViewRepresentable {
 
 extension WebView.Coordinator: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "messageHandler" {
+        if message.name == "navigate" {
             print("message name : \(message.name)")
             print("post Message : \(message.body)")
-            self.parent.viewModel.bar.send(true)
-        } else if message.name == "navigate" {
-            print("message name : \(message.name)")
-            print("post Message : \(message.body)")
+            if let messageInString = message.body as? String {
+                let messageInArray = messageInString.components(separatedBy: "/")
+                let command = messageInArray[0]
+                let data = messageInArray[1]
+                
+                if command == "profile" {
+                    self.parent.viewModel.profileSheetData.send(data)
+                    self.parent.viewModel.profileSheet.send(true)
+                }
+            }
         }
     }
 }

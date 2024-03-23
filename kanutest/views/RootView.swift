@@ -9,16 +9,20 @@ import SwiftUI
 
 struct RootView: View {
     @ObservedObject var viewModel = WebViewModel()
-    @State var showProfileSheet: Bool = false
     
+    @State private var showProfileSheet: Bool = false
+    @State private var profileSheetData: String = ""
     
     var body: some View {
-        WebView(url: "http://192.168.0.132:5173/debug", viewModel: self.viewModel)
+        WebView(url: "http://192.168.10.124:5173?sessionID=testsessionid", viewModel: self.viewModel)
             .sheet(isPresented: self.$showProfileSheet, content: {
-                NearbyView()
+                ProfileSheet(userID: self.$profileSheetData)
             })
-            .onReceive(self.viewModel.bar.receive(on: RunLoop.main)) { value in
+            .onReceive(self.viewModel.profileSheet.receive(on: RunLoop.main)) { value in
                 self.showProfileSheet = value
+            }
+            .onReceive(self.viewModel.profileSheetData.receive(on: RunLoop.main)) { value in
+                self.profileSheetData = value
             }
     }
 }
