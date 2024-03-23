@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct RootView: View {
-    let webView = WebView()
+    @ObservedObject var viewModel = WebViewModel()
+    @State var showProfileSheet: Bool = false
+    
     
     var body: some View {
-        self.webView
-            .onAppear() {
-                self.webView.loadURL(urlString: "https://kanu-webview.netlify.app/")
+        WebView(url: "http://192.168.0.132:4321/debug", viewModel: self.viewModel)
+            .sheet(isPresented: self.$showProfileSheet, content: {
+                ProfileSheet()
+            })
+            .onReceive(self.viewModel.bar.receive(on: RunLoop.main)) { value in
+                self.showProfileSheet = value
             }
     }
 }

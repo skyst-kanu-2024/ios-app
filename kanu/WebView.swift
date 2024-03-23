@@ -6,19 +6,30 @@
 //
 
 import SwiftUI
+import Combine
 import WebKit
 
 struct WebView: UIViewRepresentable {
-    
-    let webView: WKWebView
-    
-    init() {
-        self.webView = WKWebView()
-        
-    }
+    let url: String
+    @ObservedObject var viewModel: WebViewModel
     
     func makeUIView(context: Context) -> WKWebView {
-        webView.allowsBackForwardNavigationGestures = true
+        let preferences = WKPreferences()
+        preferences.javaScriptCanOpenWindowsAutomatically = false
+        
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController.add(self.makeCoordinator(), name: "messageHandler")
+        configuration.preferences = preferences
+        
+        let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
+        webView.navigationDelegate = context.coordinator
+        webView.allowsBackForwardNavigationGestures = false
+        webView.scrollView.isScrollEnabled = true
+        
+        if let url = URL(string: url) {
+            webView.load(URLRequest(url: url))
+        }
+        
         return webView
     }
     
@@ -26,16 +37,34 @@ struct WebView: UIViewRepresentable {
         
     }
     
-    func goBack(){
-        webView.goBack()
+//    func callJavaScript(command: String) {
+//        webView?.evaluateJavaScript(command)
+//    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
-    
-    func goForward(){
-        webView.goForward()
+
+    class Coordinator : NSObject, WKNavigationDelegate {
+        var parent: WebView
+        var foo: AnyCancellable? = nil
+        
+        init(_ uiWebView: WebView) {
+            self.parent = uiWebView
+        }
+
+        deinit {
+            foo?.cancel()
+        }
     }
-    
-    
-    func loadURL(urlString: String) {
-        webView.load(URLRequest(url: URL(string: urlString)!))
+}
+
+extension WebView.Coordinator: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == "messageHandler" {
+            print("message name : \(message.name)")
+            print("post Message : \(message.body)")
+            self.parent.viewModel.bar.send(true)
+        }
     }
 }
