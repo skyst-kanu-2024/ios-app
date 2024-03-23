@@ -8,6 +8,7 @@
 import SwiftUI
 import NearbyInteraction
 import MultipeerConnectivity
+import Alamofire
 
 
 struct NearbyView: View {
@@ -45,6 +46,23 @@ struct NearbyView: View {
     
     func startup() {
         viewModel.startNearbySession()
+        
+        let parameter: [String: String] = [
+            "roomid": "1",
+            "userid": "1",
+            "token": "hello_there"
+        ]
+        let tokenUpload = AF.request("https://wget.kr/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
+        
+        tokenUpload.response() { response in
+            print(response.response?.statusCode)
+        }
+        
+//        let tokenGet = AF.request("https://wget.kr/dtoken?roomid=1&userid=2", method: .get)
+//
+//        tokenGet.response() { response in
+//            print(response.response?.statusCode)
+//        }
     }
 }
 

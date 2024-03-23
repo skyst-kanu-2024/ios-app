@@ -24,7 +24,7 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = false
-        webView.scrollView.isScrollEnabled = true
+        webView.scrollView.isScrollEnabled = false
         
         if let url = URL(string: url) {
             webView.load(URLRequest(url: url))
@@ -36,10 +36,6 @@ struct WebView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
     }
-    
-//    func callJavaScript(command: String) {
-//        webView?.evaluateJavaScript(command)
-//    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -65,6 +61,9 @@ extension WebView.Coordinator: WKScriptMessageHandler {
             print("message name : \(message.name)")
             print("post Message : \(message.body)")
             self.parent.viewModel.bar.send(true)
+        } else if message.name == "navigate" {
+            print("message name : \(message.name)")
+            print("post Message : \(message.body)")
         }
     }
 }

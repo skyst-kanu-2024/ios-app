@@ -15,7 +15,7 @@ struct RootView: View {
     var body: some View {
         WebView(url: "http://192.168.0.132:5173/debug", viewModel: self.viewModel)
             .sheet(isPresented: self.$showProfileSheet, content: {
-                ProfileSheet()
+                NearbyView()
             })
             .onReceive(self.viewModel.bar.receive(on: RunLoop.main)) { value in
                 self.showProfileSheet = value
