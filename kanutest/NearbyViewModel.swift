@@ -30,6 +30,10 @@ class NearbyViewModel: ObservableObject {
         self.nearbyManager.sessionInvalidate()
     }
     
+    func initiateNearbySession() {
+        self.nearbyManager.initiateNearbySession()
+    }
+    
     func getLocalDiscoveryToken() -> NIDiscoveryToken? {
         return self.nearbyManager.localDiscoveryToken
     }

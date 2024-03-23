@@ -28,7 +28,6 @@ struct NearbyView: View {
                             .foregroundStyle(.white)
                             .fontWeight(.bold)
                             .font(.largeTitle)
-                        
                     }
                     Spacer()
                     Text("initialising...")
@@ -42,27 +41,31 @@ struct NearbyView: View {
     
     func startup() {
         viewModel.startNearbySession()
-        if let discoveryToken = viewModel.getLocalDiscoveryToken() {
-            if let encodedToken = try? NSKeyedArchiver.archivedData(withRootObject: discoveryToken, requiringSecureCoding: true) {
-                print(encodedToken.base64EncodedString())
-                
-                let parameter: [String: String] = [
-                    "roomid": "3",
-                    "userid": "1",
-                    "token": encodedToken.base64EncodedString()
-                ]
-                let tokenUpload = AF.request("https://wget.kr/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
-                
-                tokenUpload.response() { response in
-                    print(response.response?.statusCode)
-                }
-            }
-        }
+        uploadLocalToken()
         getPeerToken()
     }
     
+    func uploadLocalToken() {
+        if let discoveryToken = viewModel.getLocalDiscoveryToken() {
+            if let encodedToken = try? NSKeyedArchiver.archivedData(withRootObject: discoveryToken, requiringSecureCoding: true) {
+                print(encodedToken.base64EncodedString())
+
+                let parameter: [String: String] = [
+                    "roomid": "7",
+                    "userid": "2",
+                    "token": encodedToken.base64EncodedString()
+                ]
+                let tokenUpload = AF.request("https://wget.kr/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
+
+                tokenUpload.response() { response in
+                    print(response.response?.statusCode ?? 0)
+                }
+            }
+        }
+    }
+    
     func getPeerToken() {
-        AF.request("https://wget.kr/dtoken?roomid=3&userid=1", method: .get).responseData() { response in
+        AF.request("https://wget.kr/dtoken?roomid=7&userid=2", method: .get).responseData() { response in
             switch response.result {
             case .success(let data):
                 do {
@@ -71,7 +74,8 @@ struct NearbyView: View {
                     let json = try decoder.decode(Peer.self, from: data)
                     if let data = Data(base64Encoded: json.token) {
                         if let decodedToken = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NIDiscoveryToken.self, from: data) {
-                            print(decodedToken)
+                            self.viewModel.setPeerDiscoveryToken(token: decodedToken)
+                            self.viewModel.initiateNearbySession()
                         }
                     }
                 } catch {
