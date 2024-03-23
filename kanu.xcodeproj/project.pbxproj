@@ -11,6 +11,7 @@
 		8BA6E47B2BAEA37D0021991D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E47A2BAEA37D0021991D /* ContentView.swift */; };
 		8BA6E47D2BAEA37F0021991D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA6E47C2BAEA37F0021991D /* Assets.xcassets */; };
 		8BA6E4802BAEA37F0021991D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA6E47F2BAEA37F0021991D /* Preview Assets.xcassets */; };
+		8BA6E4872BAEA5190021991D /* NearbyNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6E4862BAEA5190021991D /* NearbyNotAvailable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8BA6E47A2BAEA37D0021991D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8BA6E47C2BAEA37F0021991D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA6E47F2BAEA37F0021991D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BA6E4862BAEA5190021991D /* NearbyNotAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyNotAvailable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				8BA6E4782BAEA37D0021991D /* kanuApp.swift */,
 				8BA6E47A2BAEA37D0021991D /* ContentView.swift */,
+				8BA6E4862BAEA5190021991D /* NearbyNotAvailable.swift */,
 				8BA6E47C2BAEA37F0021991D /* Assets.xcassets */,
 				8BA6E47E2BAEA37F0021991D /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				8BA6E47B2BAEA37D0021991D /* ContentView.swift in Sources */,
 				8BA6E4792BAEA37D0021991D /* kanuApp.swift in Sources */,
+				8BA6E4872BAEA5190021991D /* NearbyNotAvailable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
