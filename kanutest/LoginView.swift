@@ -36,17 +36,17 @@ struct LoginView: View {
             // If sign in succeeded, display the app's main content View.
             
             AF.request("https://wget.kr/api/auth", method: .post, parameters: ["token": result.user.idToken!.tokenString], encoder: JSONParameterEncoder.default).responseData() { response in
-                print(response.response?.statusCode)
                 switch response.result {
                 case .success(let data):
                     do {
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .iso8601
                         let json = try decoder.decode(LoginUser.self, from: data)
+                        print(json.session_id)
                         sessionID = json.session_id
                         self.isLogined = true
                     } catch {
-                        print("error")
+                        print(error)
                     }
                 case.failure(let error):
                     print(error)

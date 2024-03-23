@@ -9,7 +9,7 @@ import SwiftUI
 import NearbyInteraction
 import MultipeerConnectivity
 import Alamofire
-
+import SDWebImageSwiftUI
 
 struct NearbyView: View {
     @ObservedObject var viewModel = NearbyViewModel()
@@ -31,7 +31,12 @@ struct NearbyView: View {
                             .font(.largeTitle)
                     }
                     Spacer()
-                    Text("initialising...")
+                    AnimatedImage(url: URL(string: "https://static.toss.im/3d-emojis/u2764-apng.png")!)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 128, height: 128)
+                    Spacer()
+                    Text("주위를 둘러보며 상대를 찾아보세요")
                         .foregroundStyle(.white)
                 }.padding()
             }
@@ -47,8 +52,8 @@ struct NearbyView: View {
     
     func startup() {
         viewModel.startNearbySession()
-        uploadLocalToken()
-        getPeerToken()
+//        uploadLocalToken()
+//        getPeerToken()
     }
     
     func uploadLocalToken() {

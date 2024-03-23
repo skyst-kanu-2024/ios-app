@@ -15,6 +15,9 @@ struct ProfileSheet: View {
     
     var body: some View {
         WebView(url: "http://192.168.10.124:5173/profile/\(self.userID)?sessionID=\(sessionID)", viewModel: self.viewModel)
+            .onAppear() {
+                print(sessionID)
+            }
     }
 }
 
