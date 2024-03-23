@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct RootView: View {
     @ObservedObject var viewModel = WebViewModel()
@@ -36,6 +37,11 @@ struct RootView: View {
                     .publisher(for: NSNotification.Name("matchingStackView"))) { (object) in
                         self.matchingStackViewData = object.object as! String
                         self.showMatchingStackView = true
+                }
+                .onAppear() {
+                    AF.request("https://wget.kr/api/location", method: .post, parameters: ["lat": 37.50631, "lng": 127.02263], encoder: JSONParameterEncoder.default, headers: ["sessionid": self.sessionID]).response { response in
+                        print(response.response?.statusCode)
+                    }
                 }
         }
     }

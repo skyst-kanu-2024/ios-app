@@ -22,7 +22,7 @@ struct NearbyView: View {
             Group {
                 VStack {
                     VStack(alignment: .center) {
-                        Text("대충엄청난닉네임")
+                        Text("수노수노")
                             .foregroundStyle(.gray)
                             .font(.caption)
                         Text("\(String(format: "%.2f", self.viewModel.distanceToPeerDevice)) m")
@@ -52,8 +52,8 @@ struct NearbyView: View {
     
     func startup() {
         viewModel.startNearbySession()
-//        uploadLocalToken()
-//        getPeerToken()
+        uploadLocalToken()
+        getPeerToken()
     }
     
     func uploadLocalToken() {
@@ -62,11 +62,11 @@ struct NearbyView: View {
                 print(encodedToken.base64EncodedString())
 
                 let parameter: [String: String] = [
-                    "roomid": "7",
+                    "roomid": "1",
                     "userid": "1",
                     "token": encodedToken.base64EncodedString()
                 ]
-                let tokenUpload = AF.request("https://wget.kr/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
+                let tokenUpload = AF.request("https://wget.kr/api/dtoken", method: .post, parameters: parameter, encoder: JSONParameterEncoder.default)
 
                 tokenUpload.response() { response in
                     print(response.response?.statusCode ?? 0)
@@ -76,7 +76,7 @@ struct NearbyView: View {
     }
     
     func getPeerToken() {
-        AF.request("https://wget.kr/dtoken?roomid=7&userid=1", method: .get).responseData() { response in
+        AF.request("https://wget.kr/api/dtoken?roomid=1&userid=1", method: .get).responseData() { response in
             switch response.result {
             case .success(let data):
                 do {
